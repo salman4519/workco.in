@@ -180,13 +180,17 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .contact span{font-size:var(--fs-xs);letter-spacing:.24em;text-transform:uppercase;color:var(--d-2)}
 .contact b{font-size:clamp(1.25rem,2vw,1.625rem);font-weight:500;letter-spacing:-.01em;user-select:all;overflow-wrap:anywhere}
 
-.foot{background:var(--ink);color:var(--d-2);padding-block:0 112px}
+.foot{background:var(--ink);color:var(--d-2);padding-block:0 190px}
 .foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;padding-top:32px;border-top:1px solid var(--d-line)}
 .foot img{height:28px;width:auto;opacity:.9}
 .fine{font-size:.75rem;line-height:1.7;color:#7D7873;max-width:72ch}
 
 /* floating WhatsApp */
-.wa-float{position:fixed;z-index:70;right:calc(24px + env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:var(--wa);box-shadow:0 10px 30px rgba(0,0,0,.22);transition:transform .25s,box-shadow .25s}
+.floats{position:fixed;z-index:70;right:calc(24px + env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;gap:16px}
+.ig-float{display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);box-shadow:0 10px 30px rgba(0,0,0,.22);transition:transform .25s,box-shadow .25s}
+.ig-float:hover{transform:scale(1.08);box-shadow:0 14px 36px rgba(0,0,0,.28)}
+.ig-float svg{width:30px;height:30px}
+.wa-float{position:relative;display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:var(--wa);box-shadow:0 10px 30px rgba(0,0,0,.22);transition:transform .25s,box-shadow .25s}
 .wa-float:hover{transform:scale(1.08);box-shadow:0 14px 36px rgba(0,0,0,.28)}
 .wa-float svg{position:relative;z-index:1;width:32px;height:32px}
 .wa-float::before,.wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);opacity:0}
@@ -222,3 +226,16 @@ html.rv-on .closing .ring.in{transform:none;opacity:.55}
 
 /* next/image fill needs a positioned frame to size against */
 .gallery .ph,.split-ph{position:relative;overflow:hidden}
+
+/* brochure download */
+.contact .actions{display:flex;flex-wrap:wrap;gap:12px}
+.plans-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 32px;margin-top:36px}
+.plans-foot .note{margin-top:0;flex:1 1 320px}
+.plans-foot .btn{min-height:48px}
+.btn .arrow{width:16px;height:16px;flex:none}
+.btn{white-space:nowrap}
+
+/* softer, rounded corners */
+.plan{border-radius:24px}
+.gallery .ph,.split-ph{border-radius:20px}
+.site-head.solid{border-radius:0}

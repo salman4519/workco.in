@@ -25,6 +25,7 @@ export default function SiteHeader() {
           <a href="#plans">Plans</a>
           <a href="#meet">Meeting rooms</a>
           <a href="#cabins">Cabins</a>
+          <a href="/workco-brochure.pdf" download="Workco-Brochure.pdf">Brochure</a>
         </nav>
         <a className="head-cta" href="#visit">
           Book a tour

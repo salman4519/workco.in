@@ -80,9 +80,17 @@ export default function Home() {
               </p>
             </div>
             <PlansCarousel />
-            <p className="note">
+            <div className="plans-foot">
+              <p className="note">
               Meeting time is booked in 30-minute credits. Book in advance; unused credits expire at the end of each month.
-            </p>
+              </p>
+              <a className="btn btn-ink" href="/workco-brochure.pdf" download="Workco-Brochure.pdf">
+                <svg className="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M8 2v9M4 7l4 4 4-4M3 14h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                Download brochure (PDF)
+              </a>
+            </div>
           </div>
         </section>
 
@@ -178,9 +186,15 @@ export default function Home() {
                 <span>Website</span>
                 <b>workco.in</b>
               </div>
-              <div>
+              <div className="actions">
                 <a className="btn btn-red" href={waLink("Hi Workco, I'd like to book a tour.")} target="_blank" rel="noopener">
                   Book a tour on WhatsApp
+                </a>
+                <a className="btn btn-ghost" href="/workco-brochure.pdf" download="Workco-Brochure.pdf">
+                  <svg className="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M8 2v9M4 7l4 4 4-4M3 14h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  Download brochure
                 </a>
               </div>
             </div>
@@ -198,6 +212,14 @@ export default function Home() {
         </div>
       </footer>
 
+      <div className="floats">
+      <a className="ig-float" href={site.instagram} target="_blank" rel="noopener" aria-label="Follow Workco on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5.5" stroke="#fff" strokeWidth="2" />
+          <circle cx="12" cy="12" r="4.2" stroke="#fff" strokeWidth="2" />
+          <circle cx="17.3" cy="6.7" r="1.3" fill="#fff" />
+        </svg>
+      </a>
       <a className="wa-float" href={waLink("Hi Workco, I'd like to know more.")} target="_blank" rel="noopener" aria-label="Chat with Workco on WhatsApp">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path
@@ -206,6 +228,7 @@ export default function Home() {
           />
         </svg>
       </a>
+      </div>
 
       <Reveal />
     </>

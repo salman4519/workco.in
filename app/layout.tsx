@@ -73,6 +73,7 @@ const jsonLd = {
       name: site.name,
       url: site.url,
       logo: `${site.url}/images/logo-light.png`,
+      sameAs: [site.instagram],
       contactPoint: {
         '@type': 'ContactPoint',
         telephone: site.phoneIntl,

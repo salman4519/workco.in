@@ -8,6 +8,7 @@ export const site = {
   phoneDisplay: '92925 86987',
   phoneIntl: '+919292586987',
   whatsapp: 'https://wa.me/919292586987',
+  instagram: 'https://www.instagram.com/workco.in',
 };
 
 export const waLink = (text: string) => `${site.whatsapp}?text=${encodeURIComponent(text)}`;
