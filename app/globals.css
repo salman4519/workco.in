@@ -216,3 +216,6 @@ html.rv-on .closing .ring{transform:scale(.55) rotate(-40deg);opacity:0;transiti
 html.rv-on .closing .ring.in{transform:none;opacity:.55}
 .hero-photo{will-change:translate}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* next/image fill needs a positioned frame to size against */
+.gallery .ph,.split-ph{position:relative;overflow:hidden}

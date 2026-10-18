@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import logo from '@/public/images/logo-light.png';
 
 export default function SiteHeader() {
   const [solid, setSolid] = useState(false);
@@ -17,7 +18,7 @@ export default function SiteHeader() {
     <header className={`site-head${solid ? ' solid' : ''}`}>
       <div className="wrap">
         <a className="brand" href="#top" aria-label="Workco home">
-          <Image src="/images/logo-light.png" alt="Workco premium coworking spaces" width={99} height={32} priority />
+          <Image src={logo} alt="Workco premium coworking spaces" width={99} height={32} priority />
         </a>
         <nav className="nav" aria-label="Main">
           <a href="#space">The space</a>

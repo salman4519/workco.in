@@ -4,11 +4,18 @@ import Reveal from '@/components/Reveal';
 import SiteHeader from '@/components/SiteHeader';
 import Words from '@/components/Words';
 import { cabins, inr, meetingRooms, site, waLink } from '@/lib/site';
+import cafe from '@/public/images/cafe.jpg';
+import conference from '@/public/images/conference.jpg';
+import logo from '@/public/images/logo-light.png';
+import lounge from '@/public/images/lounge.jpg';
+import pantry from '@/public/images/pantry.jpg';
+import reception from '@/public/images/reception.jpg';
+import workspace from '@/public/images/workspace.jpg';
 
 const gallery = [
-  { src: '/images/cafe.jpg', alt: 'Lounge booths and cafe tables at Workco', caption: 'Lounge and cafe' },
-  { src: '/images/pantry.jpg', alt: 'Fully fitted pantry at Workco', caption: 'Fitted pantry', pos: 'center 62%' },
-  { src: '/images/reception.jpg', alt: 'Workco reception with a glass meeting room', caption: 'Reception', pos: '40% center' },
+  { src: cafe, alt: 'Lounge booths and cafe tables at Workco', caption: 'Lounge and cafe' },
+  { src: pantry, alt: 'Fully fitted pantry at Workco', caption: 'Fitted pantry', pos: 'center 62%' },
+  { src: reception, alt: 'Workco reception with a glass meeting room', caption: 'Reception', pos: '40% center' },
 ];
 
 export default function Home() {
@@ -19,7 +26,7 @@ export default function Home() {
       <main id="top">
         <section className="hero" aria-label="Introduction">
           <div className="hero-photo">
-            <Image src="/images/workspace.jpg" alt="The Workco open workspace with rows of desks" fill priority sizes="100vw" />
+            <Image src={workspace} alt="The Workco open workspace with rows of desks" fill priority fetchPriority="high" placeholder="blur" quality={70} sizes="100vw" />
           </div>
           <div className="wrap">
             <p className="label rise">{site.tagline}</p>
@@ -50,9 +57,9 @@ export default function Home() {
           <div className="wrap">
             <div className="gallery">
               {gallery.map((g) => (
-                <figure key={g.src}>
+                <figure key={g.caption}>
                   <div className="ph">
-                    <Image src={g.src} alt={g.alt} fill sizes="(min-width: 760px) 33vw, 100vw" style={g.pos ? { objectPosition: g.pos } : undefined} />
+                    <Image src={g.src} alt={g.alt} fill placeholder="blur" quality={70} sizes="(min-width: 1240px) 380px, (min-width: 760px) 33vw, 100vw" style={g.pos ? { objectPosition: g.pos } : undefined} />
                   </div>
                   <figcaption>{g.caption}</figcaption>
                 </figure>
@@ -82,7 +89,7 @@ export default function Home() {
         <section className="band" id="meet" style={{ paddingTop: 0 }} aria-label="Meeting rooms">
           <div className="wrap split">
             <div className="split-ph">
-              <Image src="/images/conference.jpg" alt="Workco conference room with a long table and chairs" fill sizes="(min-width: 960px) 50vw, 100vw" />
+              <Image src={conference} alt="Workco conference room with a long table and chairs" fill placeholder="blur" quality={70} sizes="(min-width: 1240px) 540px, (min-width: 960px) 45vw, 100vw" />
             </div>
             <div className="split-text">
               <p className="label">Meeting rooms</p>
@@ -112,10 +119,12 @@ export default function Home() {
           <div className="wrap split rev">
             <div className="split-ph">
               <Image
-                src="/images/lounge.jpg"
+                src={lounge}
+                placeholder="blur"
+                quality={70}
                 alt="Quiet seating corner at Workco"
                 fill
-                sizes="(min-width: 960px) 50vw, 100vw"
+                sizes="(min-width: 1240px) 540px, (min-width: 960px) 45vw, 100vw"
                 style={{ objectPosition: 'center 85%' }}
               />
             </div>
@@ -181,7 +190,7 @@ export default function Home() {
 
       <footer className="foot">
         <div className="wrap">
-          <Image src="/images/logo-light.png" alt="Workco" width={87} height={28} />
+          <Image src={logo} alt="Workco" width={87} height={28} />
           <p className="fine">
             Prices are per month unless stated. The Daily Pass is valid 9 AM to 8 PM on the day of use. Branch access applies to
             participating locations. Please confirm terms, availability and taxes before purchase.
