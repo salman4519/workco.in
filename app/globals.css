@@ -14,7 +14,7 @@
   --d-text:#F4F2F0;
   --d-2:#A9A39E;
   --d-line:#2A2928;
-  --wa:#25D366;
+  --wa:#65D072;
   --font:var(--font-poppins),"Poppins",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --fs-hero:clamp(3rem,8vw,6.75rem);
   --fs-h2:clamp(2rem,4.2vw,3.25rem);
@@ -187,20 +187,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* floating WhatsApp */
 .floats{position:fixed;z-index:70;right:calc(24px + env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;gap:16px}
-.ig-float{display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);box-shadow:0 10px 30px rgba(0,0,0,.22);transition:transform .25s,box-shadow .25s}
+.ig-float{display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);box-shadow:0 10px 30px rgba(0,0,0,.22);transition:transform .25s,box-shadow .25s}
 .ig-float:hover{transform:scale(1.08);box-shadow:0 14px 36px rgba(0,0,0,.28)}
-.ig-float svg{width:30px;height:30px}
+.ig-float svg{width:34px;height:34px}
 .wa-float{position:relative;display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:var(--wa);box-shadow:0 10px 30px rgba(0,0,0,.22);transition:transform .25s,box-shadow .25s}
 .wa-float:hover{transform:scale(1.08);box-shadow:0 14px 36px rgba(0,0,0,.28)}
-.wa-float svg{position:relative;z-index:1;width:32px;height:32px}
-.wa-float::before,.wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);opacity:0}
-@media (prefers-reduced-motion:no-preference){
-  .wa-float::before,.wa-float::after{animation:waPulse 2.6s cubic-bezier(.2,.7,.2,1) infinite}
-  .wa-float::after{animation-delay:1.3s}
-  .wa-float svg{animation:waNudge 5.2s ease-in-out infinite}
-  @keyframes waPulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.9);opacity:0}}
-  @keyframes waNudge{0%,84%,100%{transform:rotate(0)}87%{transform:rotate(-14deg)}90%{transform:rotate(12deg)}93%{transform:rotate(-8deg)}96%{transform:rotate(5deg)}}
-}
+.wa-float svg{width:34px;height:34px}
 
 /* scroll reveals: only armed by script, and only for things below the first screen */
 .ws .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.1em;margin-bottom:-.1em}

@@ -215,9 +215,9 @@ export default function Home() {
       <div className="floats">
       <a className="ig-float" href={site.instagram} target="_blank" rel="noopener" aria-label="Follow Workco on Instagram">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5.5" stroke="#fff" strokeWidth="2" />
-          <circle cx="12" cy="12" r="4.2" stroke="#fff" strokeWidth="2" />
-          <circle cx="17.3" cy="6.7" r="1.3" fill="#fff" />
+          <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="#fff" strokeWidth="2.3" />
+          <circle cx="12" cy="12" r="4" stroke="#fff" strokeWidth="2.3" />
+          <circle cx="17.1" cy="6.9" r="1.35" fill="#fff" />
         </svg>
       </a>
       <a className="wa-float" href={waLink("Hi Workco, I'd like to know more.")} target="_blank" rel="noopener" aria-label="Chat with Workco on WhatsApp">
