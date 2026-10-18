@@ -7,7 +7,8 @@ import { inr, plans, waLink } from '@/lib/site';
 export default function PlansCarousel() {
   const track = useRef<HTMLDivElement>(null);
   const slides = useRef<(HTMLDivElement | null)[]>([]);
-  const [current, setCurrent] = useState(plans.findIndex((p) => p.featured));
+  const [current, setCurrent] = useState(0);
+  const [mobile, setMobile] = useState(false);
 
   const centerOf = (el: HTMLElement) => el.offsetLeft + el.offsetWidth / 2;
 
@@ -26,30 +27,36 @@ export default function PlansCarousel() {
 
     const paint = () => {
       raf = 0;
+      setMobile(mq.matches);
+      const mid = t.scrollLeft + t.clientWidth / 2;
+      let best = 0;
+      let bestD = Infinity;
       slides.current.forEach((s, i) => {
         const card = s?.firstElementChild as HTMLElement | null;
         if (!s || !card) return;
         if (!mq.matches) {
-          card.style.scale = card.style.translate = card.style.filter = s.style.zIndex = '';
+          card.style.scale = card.style.translate = s.style.zIndex = '';
           return;
         }
-        const mid = t.scrollLeft + t.clientWidth / 2;
         const d = (centerOf(s) - mid) / s.offsetWidth;
         const a = Math.min(Math.abs(d), 1);
         card.style.scale = String(1 - 0.12 * a);
         card.style.translate = `${-Math.sign(d) * a * 30}% 0`;
-        card.style.filter = `brightness(${1 - 0.12 * a})`;
         s.style.position = 'relative';
         s.style.zIndex = String(10 - Math.round(Math.min(Math.abs(d), 1.5) * 4));
-        if (Math.abs(d) < 0.5) setCurrent(i);
+        if (Math.abs(d) < bestD) {
+          bestD = Math.abs(d);
+          best = i;
+        }
       });
+      if (mq.matches) setCurrent(best);
     };
     const schedule = () => {
       if (!raf) raf = requestAnimationFrame(paint);
     };
 
-    // open on the most popular plan
-    if (mq.matches) go(plans.findIndex((p) => p.featured), true);
+    // start on the Daily Pass
+    if (mq.matches) go(0, true);
     paint();
     t.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule);
@@ -77,7 +84,7 @@ export default function PlansCarousel() {
       <div className="plans" ref={track}>
         {plans.map((p, i) => (
           <div className="slide" key={p.name} ref={(el) => { slides.current[i] = el; }}>
-            <article className={`plan${p.featured ? ' feat' : ''}`}>
+            <article className={`plan${mobile && i === current ? ' active' : ''}`}>
               <div className="plan-top">
                 <h3 className="nm">{p.name}</h3>
                 {p.featured ? <span className="tag">Most popular</span> : null}
@@ -90,7 +97,7 @@ export default function PlansCarousel() {
                 ))}
               </ul>
               <a
-                className={`btn ${p.featured ? 'btn-red' : 'btn-ink'}`}
+                className="btn btn-ink"
                 href={waLink(`Hi Workco, I'm interested in the ${p.name}${p.name === 'Daily Pass' ? '' : ' plan'}.`)}
                 target="_blank"
                 rel="noopener"
