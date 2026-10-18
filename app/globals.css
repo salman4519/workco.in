@@ -231,3 +231,5 @@ html.rv-on .closing .ring.in{transform:none;opacity:.55}
 .plan{border-radius:24px}
 .gallery .ph,.split-ph{border-radius:20px}
 .site-head.solid{border-radius:0}
+.head-cta{display:inline-flex;align-items:center;gap:8px}
+.head-cta svg{width:15px;height:15px;flex:none}

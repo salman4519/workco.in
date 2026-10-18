@@ -25,10 +25,12 @@ export default function SiteHeader() {
           <a href="#plans">Plans</a>
           <a href="#meet">Meeting rooms</a>
           <a href="#cabins">Cabins</a>
-          <a href="/workco-brochure.pdf" download="Workco-Brochure.pdf">Brochure</a>
         </nav>
-        <a className="head-cta" href="#visit">
-          Book a tour
+        <a className="head-cta" href="/workco-brochure.pdf" download="Workco-Brochure.pdf" aria-label="Download the Workco brochure (PDF)">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 2v9M4 7l4 4 4-4M3 14h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Brochure
         </a>
       </div>
     </header>
